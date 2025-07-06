@@ -168,6 +168,8 @@ python3 test.py test_graphiti xxx
 python3 test.py test_neo4j xxx
 ```
 
+---
+
 ## CLI commands
 
 Every agent type (i.e. `doc`, `inh`, etc) has its own CLI. However, the root `cli.py` routes the CLI processing to the different agent type specific CLI. Here is the general format:
