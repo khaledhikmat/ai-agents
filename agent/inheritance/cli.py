@@ -688,7 +688,7 @@ processors: Dict[str, Callable[..., Awaitable [None]]] = {
 # Returns all person names:
 # MATCH (p:Person) RETURN p.name LIMIT 25;
 # Returns all person selected attributes:
-# MATCH (p:Person) RETURN p.name, p.birth_country, p.birth_city, p.death_city, p.death_country LIMIT 25;ZYHU3Y2 3UY 3UY
+# MATCH (p:Person) RETURN p.name, p.birth_country, p.birth_city, p.death_city, p.death_country LIMIT 25
 # Returns all person selected attributes:
 # MATCH (p:Person) RETURN p.name, p.profession, p.gender, p.residence_country, p.residence_city, p.birth_country, p.birth_city, p.death_city, p.death_country LIMIT 25;
 

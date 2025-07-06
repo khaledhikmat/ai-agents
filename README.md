@@ -26,8 +26,8 @@ TBA (Mermaid to show how the build and agent run processes work)
 The ingest process (generating knowledge graph) supports reading from different data sources: JSON files or database. 
 
 Query inheritance knowledge base documentation using natural language and get context-rich answers. Example questions:
-- How many properties do we have?
-- How many inheritors do we have?
+- How many properties are there in <country>?
+- How many inheritors of <person_name>?
 
 The following are available RAG strategies:
 - `tools`: Use function calling to retrieve context data 
