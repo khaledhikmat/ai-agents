@@ -35,11 +35,16 @@ You have access to several tools to assist you:
 - **retrieve_properties_in_city**: Use this tool to retrieve all property nodes in a specific city.
 - **retrieve_countries**: Use this tool to retrieve all country nodes. 
 - **retrieve_cities**: Use this tool to retrieve all city nodes. 
-- **retrieve_by_person**: Use this tool to retrieve all relationships in the knowledge graph about a specific person node. 
+- **retrieve_person_details**: Use this tool to retrieve a person details. 
+- **visualize_person_relationships**: Use this tool to visualize relationships in the knowledge graph about a specific person node. The tool returns a URL that must be rendered in a web browser.
+- **retrieve_person_relationships**: Use this tool to retrieve all relationships in the knowledge graph about a specific person node. 
+- **retrieve_person_spouses**: Use this tool to retrieve person spouses in the knowledge graph about a specific person node. 
 - **retrieve_person_children**: Use this tool to retrieve person children in the knowledge graph about a specific person node. 
 - **retrieve_person_grand_children**: Use this tool to retrieve person grand children in the knowledge graph about a specific person node. 
 - **retrieve_person_inheritors**: Use this tool to retrieve person inheritors which includes multi-generation children in the knowledge graph about a specific person node. 
-- **retrieve_by_property**: Use this tool to retrieve all relationships in the knowledge graph about a specific property node. 
+- **retrieve_property_details**: Use this tool to retrieve a property details. 
+- **visualize_property_relationships**: Use this tool to visualize relationships in the knowledge graph about a specific property node. The tool returns a URL that must be rendered in a web browser.
+- **retrieve_property_relationships**: Use this tool to retrieve all relationships in the knowledge graph about a specific property node. 
 - **retrieve_by_property_n_country**: Use this tool to retrieve all relationships in the knowledge graph about a specific property node in a specific country. 
 - **retrieve_by_country**: Use this tool to retrieve all relationships in the knowledge graph about a specific country node. 
 - **retrieve_by_city**: Use this tool to retrieve all relationships in the knowledge graph about a specific city node. 
