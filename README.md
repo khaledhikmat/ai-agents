@@ -6,7 +6,11 @@ A collection of AI agents and services to experiment with different tool and RAG
 
 ## Agents
 
+The following agenrs are available:
+
 ### DOC Agent
+
+This is a helpful assistant that answers questions about system documentation based on provided Markdown URLs.
 
 The ingest process (generating RAG docs) supports reading repo URLs from a URL list separated by a comma. Repo URLs list can be for Gitlab or Github repositories (and they can be mixed). The ingestor walks through the repository looking for `.md` URLs. The `.md` files content will be source of the documenation knowledge base.
 
@@ -23,11 +27,13 @@ TBA (Mermaid to show how the build and agent run processes work)
 
 ### INH Agent
 
-The ingest process (generating knowledge graph) supports reading from different data sources: JSON files or database. 
+This is a helpful assistant that answers questions about family inheritance based on a knowledge graph.
+
+The ingest process (generating knowledge graph) supports reading from different data sources: JSON files or database. Please refer to a samle JSON files in [sample data](./sample-data/).
 
 Query inheritance knowledge base documentation using natural language and get context-rich answers. Example questions:
-- How many properties do we have?
-- How many inheritors do we have?
+- How many properties are there in <country>?
+- How many inheritors of <person_name>?
 
 The following are available RAG strategies:
 - `tools`: Use function calling to retrieve context data 
@@ -156,7 +162,7 @@ To activate Ollama, please set the following env vars:
 This module contains different test processors to exercise isolated aspects of the solution. Every TEST processor can be invoked from `test.py`. Here is the general format:
 
 ```bash
-python3 test.py <tes-name> <arg1>
+python3 test.py <test-name> <arg1>
 # examples:
 ## repo service:
 python3 test.py test_repo https://github.com/khaledhikmat/vs-go
@@ -206,6 +212,8 @@ python3 cli.py inh ingest <data-source>
 ## ingest using json data source
 python3 cli.py inh ingest json
 ```
+
+The `json` data source assumes JSON files exist in `./data` folder named: `persons.json` and `properties.json`. Please use the [sample files](./sample-data/) to build your own. 
 
 ---
 

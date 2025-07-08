@@ -58,7 +58,7 @@ async def _ingest_persons(_: IConfigService, graph_svc: IGraphService) -> None:
         photo: str
         birth_certificate: str
         death_certificate: str
-        inh_confinement: str
+        inheritance_confinement: str
         children: List[str] = field(default_factory=list)
         spouses: List[str] = field(default_factory=list)
 
@@ -78,8 +78,12 @@ async def _ingest_persons(_: IConfigService, graph_svc: IGraphService) -> None:
 
         countrycities = dict[str, set[str]]()
 
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+
+        persons_file_path = os.path.join(base_dir, "data", "persons.json")
+
         # load persons
-        with open("data/persons.json", "r") as f:
+        with open(persons_file_path, "r") as f:
             persons = json.load(f)
 
             # create person nodes
@@ -142,7 +146,7 @@ async def _ingest_persons(_: IConfigService, graph_svc: IGraphService) -> None:
                             p.photo = $photo,
                             p.birth_certificate = $birth_certificate,
                             p.death_certificate = $death_certificate,
-                            p.inh_confinement = $inh_confinement
+                            p.inheritance_confinement = $inheritance_confinement
                         ON MATCH SET
                             p.residence_country = $residence_country,
                             p.residence_city = $residence_city,
@@ -162,7 +166,7 @@ async def _ingest_persons(_: IConfigService, graph_svc: IGraphService) -> None:
                             p.photo = $photo,
                             p.birth_certificate = $birth_certificate,
                             p.death_certificate = $death_certificate,
-                            p.inh_confinement = $inh_confinement
+                            p.inheritance_confinement = $inheritance_confinement
                     RETURN p
                 """
 
@@ -186,7 +190,7 @@ async def _ingest_persons(_: IConfigService, graph_svc: IGraphService) -> None:
                     "photo": person.photo,
                     "birth_certificate": person.birth_certificate,
                     "death_certificate": person.death_certificate,
-                    "inh_confinement": person.inh_confinement
+                    "inheritance_confinement": person.inheritance_confinement
                 }
 
                 try:
@@ -459,8 +463,12 @@ async def _ingest_properties(_: IConfigService, graph_svc: IGraphService) -> Non
         countries : dict[str, str] = {}
         cities : dict[str, str] = {}
 
+        base_dir = os.path.dirname(os.path.abspath(__file__))
+
+        properties_file_path = os.path.join(base_dir, "data", "properties.json")
+
         # load properties
-        with open("data/properties.json", "r") as f:
+        with open(properties_file_path, "r") as f:
             properties = json.load(f)
 
             # create property nodes
@@ -688,7 +696,7 @@ processors: Dict[str, Callable[..., Awaitable [None]]] = {
 # Returns all person names:
 # MATCH (p:Person) RETURN p.name LIMIT 25;
 # Returns all person selected attributes:
-# MATCH (p:Person) RETURN p.name, p.birth_country, p.birth_city, p.death_city, p.death_country LIMIT 25;ZYHU3Y2 3UY 3UY
+# MATCH (p:Person) RETURN p.name, p.birth_country, p.birth_city, p.death_city, p.death_country LIMIT 25
 # Returns all person selected attributes:
 # MATCH (p:Person) RETURN p.name, p.profession, p.gender, p.residence_country, p.residence_city, p.birth_country, p.birth_city, p.death_city, p.death_country LIMIT 25;
 

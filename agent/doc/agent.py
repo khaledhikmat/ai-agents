@@ -11,6 +11,7 @@ from service.crawl.craw4ai import AICrawlService
 from service.rag.lightrag import LightRAGService
 
 from agent.typex import AgentParameters
+from .prompts import SYSTEM_PROMPT
 
 # agent dependecies
 @dataclass
@@ -22,11 +23,8 @@ class DocAgentDeps:
 doc_agent = Agent(
     get_llm_model(), # get the LLM model based on environment variables
     deps_type=DocAgentDeps,
-    system_prompt="You are a helpful assistant that answers questions about system documentation based on the provided documentation. "
-                    "Use the retrieve tool to get relevant information from the URL documentation before answering. "
-                    "If the documentation doesn't contain the answer, clearly state that the information isn't available "
-                    "in the current documentation and provide your best general knowledge response."
-    )
+    system_prompt=SYSTEM_PROMPT
+)
     
 # Called from the main app to initialize the agent parameters
 def initialize_agent_params() -> AgentParameters:
